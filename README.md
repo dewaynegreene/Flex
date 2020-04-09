@@ -1,2 +1,2 @@
 # Flex
-Flex Project
+This is a workout planner. Thats it
