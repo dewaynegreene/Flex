@@ -2,33 +2,36 @@
 #define PERSON_H
 #include <string>
 
+using namespace std;
+
 class Person
 {
     private:
-	std::string name;
+	string name;
 	int age;
 	char sex;
-	std::string height;
+	int height; // in inches
 	double weight;
-	static int count;
-	//Workout Workout;
+	static int count; //Static member variable
+	//Workout Workout ;  not created yet
 	
     protected:
 
     public:
-	std::string get_name();
-	void set_name();
+	Person();
+	string get_name();
+	void set_name(string fn, string ln);
 	int get_age();
 	void set_age(int age);
 	char get_sex();
 	void set_sex(char sex);
 	double get_weight();
 	void set_weight(double weight);
-	std::string get_height();
-	void set_height(std::string height);
-	static int getcount();
-	double bmi();
-	//Person operator+(const Person& b); //Overloading operator
+	int get_height();
+	void set_height(int feet, int inch);
+	static void getcount(void);  //Static member function
+	void printbmi();
+	//Person operator+(const Person& b); //Overloading operator not created yet
 
 	
 };
