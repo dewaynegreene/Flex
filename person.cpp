@@ -5,7 +5,7 @@
 
 using namespace std;
 
- int Person::count = 0;
+int Person::count = 0;
 
 Person::Person()
 {
