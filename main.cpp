@@ -1,4 +1,5 @@
 #include "person.h"
+#include "workout.h"
 #include <iostream>
 #include <string>
 
@@ -15,6 +16,10 @@ int main()
 	int feetheight;
 	int inchheight;
 	double weight;
+	char selection;
+	int dotw;
+	char gym;
+	char equipment;
 
 
    cout << "Workout Planner\n\n";
@@ -52,10 +57,37 @@ int main()
 	//All this is just information about the user.
 	//We can push this person to the vector of people we have created.
 
-	cout << "\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space) \n";
-	cout << "1. Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back";
-	//cin << selection
-   }
+	cout << "\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
+	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
+
+	Workout w;
+	
+	
+	while(selection != '0') 
+	{
+		cin >> selection;
+		w.set_completion(selection);
+	}
+
+	cout << "How many days of the week do you want to exercise?: "; //user validation 1-7
+	cin >> dotw;
+	w.set_dotw(dotw);
+
+	cout << "Do you have a gym membership? (y/n): ";
+	cin >> gym;
+	w.set_gym(gym);
+
+	if(gym == 'n')
+	{
+		cout << "Do you have gym equipment at home? (y/n): ";
+		cin >> equipment;
+		w.set_equipment(equipment);
+	}
+
+	
+ 	
+
+    }//end of else if
    
 
 	return 0;
