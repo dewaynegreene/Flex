@@ -15,6 +15,13 @@ class Workout : public Person
         bool glutes;
         bool abdomen;
         bool back;
+        string bicep_exercise;
+        string tricep_exercise;
+        string quad_exercise;
+        string glutes_exercise;
+        string abdomen_exercise;
+        string back_exercise;
+    
     protected:
 
     public:
