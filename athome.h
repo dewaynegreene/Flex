@@ -7,12 +7,12 @@
 class athome : public Workout
 {
     private:
-
+        char equip;
 	
     protected:
-
+        
     public:
-
+        void equipment(char);
 };
 
 #endif //PERSON_H
