@@ -1,5 +1,7 @@
 #include "person.h"
 #include "workout.h"
+#include "athome.h"
+#include "atgym.h"
 #include <iostream>
 #include <string>
 
@@ -16,7 +18,7 @@ int main()
 	int feetheight;
 	int inchheight;
 	double weight;
-	char selection;
+	char selection = '\0';
 	int dotw;
 	char gym;
 	char equipment;
@@ -61,7 +63,8 @@ int main()
 	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
 
 	Workout w;
-	
+    atgym g;
+    athome h;
 	
 	while(selection != '0') 
 	{
@@ -81,8 +84,35 @@ int main()
 	{
 		cout << "Do you have gym equipment at home? (y/n): ";
 		cin >> equipment;
-		w.set_equipment(equipment);
-	}
+		h.equipment(equipment);
+            if (w.bicep == 1) {
+                h.bicep_workout();
+            } else if (h.tricep == 1) {
+                h.tricep_workout();
+            } else if (h.quad == 1) {
+                h.quad_workout();
+            } else if (h.glutes == 1) {
+                h.glutes_workout();
+            } else if (h.abdomen == 1) {
+                h.abdomen_workout();
+            } else if (h.back == 1) {
+                h.back_workout();
+            }
+    } else if (gym == 'y') {
+        if (w.bicep == 1) {
+            g.bicep_workout();
+        } else if (h.tricep == 1) {
+            g.tricep_workout();
+        } else if (h.quad == 1) {
+            g.quad_workout();
+        } else if (h.glutes == 1) {
+            g.glutes_workout();
+        } else if (h.abdomen == 1) {
+            g.abdomen_workout();
+        } else if (h.back == 1) {
+            g.back_workout();
+        }
+    }
 
 	
  	

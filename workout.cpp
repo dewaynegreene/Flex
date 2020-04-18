@@ -52,7 +52,3 @@ void Workout::set_gym(char input)
     gym = input;
 }
 
-void Workout::set_equipment(char input)
-{
-    equipment = input;
-}

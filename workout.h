@@ -9,12 +9,7 @@ class Workout : public Person
 {
     private:
         int dayoftheweek;
-        bool bicep = false;
-        bool tricep = false;
-        bool quad = false;
-        bool glutes = false;
-        bool abdomen = false;
-        bool back = false;
+
         string bicep_exercise;
         string tricep_exercise;
         string quad_exercise;
@@ -22,17 +17,21 @@ class Workout : public Person
         string abdomen_exercise;
         string back_exercise;
         char gym;
-        char equipment;
     protected:
 
     public:
+        bool bicep = false;
+        bool tricep = false;
+        bool quad = false;
+        bool glutes = false;
+        bool abdomen = false;
+        bool back = false;
         Workout();
         virtual ~Workout();
         void set_completion(char choice); //This will change the boolean variable of each data member depending if the user entered its value or not
         void set_dotw(int dotw);
         void get_dotw();
         void set_gym(char input);
-        void set_equipment(char input);
         void read_file(); //not built
       //  virtual void write_file();
         string bicep_workout(); //These will return workout for each variable
