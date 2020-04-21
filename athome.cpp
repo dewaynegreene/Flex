@@ -25,7 +25,7 @@ string athome::tricep_workout() {
 
 string athome::quad_workout() {
     if (equip == 'y') {
-        quad_exercise = "Weighed L-unges: 5 sets of 10 reps";
+        quad_exercise = "Weighed Lunges: 5 sets of 10 reps";
     } else if (equip == 'n') {
         quad_exercise = "Squats: 5 sets of 10-20 reps";
     }

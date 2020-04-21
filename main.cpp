@@ -85,31 +85,31 @@ int main()
 		cout << "Do you have gym equipment at home? (y/n): ";
 		cin >> equipment;
 		h.equipment(equipment);
-            if (w.bicep == 1) {
+            if (w.bicep == true) {
                 h.bicep_workout();
-            } else if (h.tricep == 1) {
+            } else if (h.tricep == true) {
                 h.tricep_workout();
-            } else if (h.quad == 1) {
+            } else if (h.quad == true) {
                 h.quad_workout();
-            } else if (h.glutes == 1) {
+            } else if (h.glutes == true) {
                 h.glutes_workout();
-            } else if (h.abdomen == 1) {
+            } else if (h.abdomen == true) {
                 h.abdomen_workout();
-            } else if (h.back == 1) {
+            } else if (h.back == true) {
                 h.back_workout();
             }
     } else if (gym == 'y') {
-        if (w.bicep == 1) {
+        if (w.bicep == true) {
             g.bicep_workout();
-        } else if (h.tricep == 1) {
+        } else if (h.tricep == true) {
             g.tricep_workout();
-        } else if (h.quad == 1) {
+        } else if (h.quad == true) {
             g.quad_workout();
-        } else if (h.glutes == 1) {
+        } else if (h.glutes == true) {
             g.glutes_workout();
-        } else if (h.abdomen == 1) {
+        } else if (h.abdomen == true) {
             g.abdomen_workout();
-        } else if (h.back == 1) {
+        } else if (h.back == true) {
             g.back_workout();
         }
     }

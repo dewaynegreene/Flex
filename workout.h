@@ -1,6 +1,7 @@
 #ifndef WORKOUT_H
 #define WORKOUT_H
 #include <string>
+#include <fstream>
 #include "person.h"
 
 using namespace std;

@@ -52,3 +52,9 @@ void Workout::set_gym(char input)
     gym = input;
 }
 
+void read_file() {
+    ifstream infile;
+    infile.open("workout_planner.txt");
+    
+    
+}
