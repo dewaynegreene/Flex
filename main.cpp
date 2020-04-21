@@ -4,6 +4,7 @@
 #include "atgym.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -80,6 +81,8 @@ int main()
 	cin >> gym;
 	w.set_gym(gym);
 
+    vector <string> workouts;
+       
 	if(gym == 'n')
 	{
 		cout << "Do you have gym equipment at home? (y/n): ";
@@ -87,33 +90,60 @@ int main()
 		h.equipment(equipment);
             if (w.bicep == true) {
                 h.bicep_workout();
-            } else if (h.tricep == true) {
-                h.tricep_workout();
-            } else if (h.quad == true) {
-                h.quad_workout();
-            } else if (h.glutes == true) {
-                h.glutes_workout();
-            } else if (h.abdomen == true) {
-                h.abdomen_workout();
-            } else if (h.back == true) {
-                h.back_workout();
+                workouts.push_back(h.bicep_workout());
             }
-    } else if (gym == 'y') {
-        if (w.bicep == true) {
-            g.bicep_workout();
-        } else if (h.tricep == true) {
-            g.tricep_workout();
-        } else if (h.quad == true) {
-            g.quad_workout();
-        } else if (h.glutes == true) {
-            g.glutes_workout();
-        } else if (h.abdomen == true) {
-            g.abdomen_workout();
-        } else if (h.back == true) {
-            g.back_workout();
+            if (h.tricep == true) {
+                h.tricep_workout();
+                workouts.push_back(h.tricep_workout());
+            }
+            if (h.quad == true) {
+                h.quad_workout();
+                workouts.push_back(h.quad_workout());
+            }
+            if (h.glutes == true) {
+                h.glutes_workout();
+                workouts.push_back(h.glutes_workout());
+            }
+            if (h.abdomen == true) {
+                h.abdomen_workout();
+                workouts.push_back(h.abdomen_workout());
+            }
+            if (h.back == true) {
+                h.back_workout();
+                workouts.push_back(h.abdomen_workout());
+            }
+        } else if (gym == 'y') {
+            if (w.bicep == true) {
+                g.bicep_workout();
+                workouts.push_back(h.bicep_workout());
+            }
+            if (h.tricep == true) {
+                g.tricep_workout();
+                workouts.push_back(h.tricep_workout());
+            }
+            if (h.quad == true) {
+                g.quad_workout();
+                workouts.push_back(h.quad_workout());
+            }
+            if (h.glutes == true) {
+                g.glutes_workout();
+                workouts.push_back(h.glutes_workout());
+            }
+            if (h.abdomen == true) {
+                g.abdomen_workout();
+                workouts.push_back(h.abdomen_workout());
+            }
+            if (h.back == true) {
+                g.back_workout();
+                workouts.push_back(h.back_workout());
+            }
         }
-    }
 
+       ofstream outfile;
+       outfile.open("workout_planner.txt");
+        for (const auto &e : workouts) outfile << e << "\n";
+       
+       
 	
  	
 
