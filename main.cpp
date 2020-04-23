@@ -141,11 +141,9 @@ int main()
 
        ofstream outfile;
        outfile.open("workout_planner.txt");
-        for (const auto &e : workouts) outfile << e << "\n";
+        for (const auto &e : workouts)
+            outfile << e << "\n";
        
-       
-	
- 	
 
     }//end of else if
    
