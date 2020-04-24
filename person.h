@@ -29,7 +29,7 @@ class Person
 	void set_weight(double weight);
 	int get_height();
 	void set_height(int feet, int inch);
-	static void getcount(void);  //Static member function
+	static int getcount();  //Static member function
 	double printbmi();
 	//Person operator+(const Person& b); //Overloading operator not created yet
 
