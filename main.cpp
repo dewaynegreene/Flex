@@ -23,8 +23,10 @@ int main()
 	int dotw;
 	char gym;
 	char equipment;
+    int user;
+    vector<Person>vec;
 
-
+    
    cout << "Workout Planner\n\n";
    
    cout << "Do you have an account? (y/n): ";
@@ -32,10 +34,56 @@ int main()
    
    if(account == 'y')
    {
-	cout << "Which one is you?";
-	//Here we can use a for loop with the condition being i<count to loop through all the Person objects that exist.
+	cout << "Which one is you?\n";
+	
+    ifstream iprofile;
+    iprofile.open("profiles.txt");
+    string line;
+
+    while(!iprofile.eof())
+    {
+        Person f;
+        string filefname, filelname;
+        char filesex;
+        int filefeet, fileinch, fileage;
+        double fileweight;
+        iprofile >> filefname >> filelname >> fileage >> filesex >> filefeet >> fileinch >> fileweight;
+        f.set_name(filefname, filelname);
+        f.set_age(fileage);
+        f.set_sex(filesex);
+        f.set_height(filefeet, fileinch);
+        f.set_weight(fileweight);
+
+
+        vec.push_back(f);
+    }
+
+    for(int i=1, l=0; l < vec.size()-1; i++, l++)
+    {
+        cout << i << ". ";
+        cout << vec[l].get_name() << '\n';
+    }
+
+    cout << "\nChoice: ";
+    cin >> user;
+    //YUH YUH YUH 
    }
-   else if(account == 'n')
+ /*  if(account == 'y' && vec.size() < 1)
+   {
+       char choice;
+       cout << "There are no created accounts! Would you like to make one? (y/n): ";
+       cin >> choice;
+       if(choice == 'y')
+       {
+           account = 'n';
+       }
+       else if(choice == 'n')
+       {
+           cout << "Bye!";
+       }
+
+   }*/
+    if(account == 'n')
    {
     Person p;
 	cout << "\nEnter your first name: ";
@@ -57,7 +105,17 @@ int main()
 	cin >> weight;
 	p.set_weight(weight);
 
-    
+    //Push person into vector of people
+    //vec.push_back(p);
+
+    //Here we create their account in the profiles file
+
+    ofstream profile;
+    profile.open("profiles.txt", ios::app);
+    profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
+    profile.close();
+
+
 	//All this is just information about the user.
 	//We can push this person to the vector of people we have created.
 
@@ -146,6 +204,7 @@ int main()
        outfile.open("workout_planner.txt"); 
         outfile << firstname << "'s Info\n";
         outfile << "-------------------------------\n";
+        outfile << "Age: " << age << '\n';
         outfile << "Height: " << feetheight << "' " << inchheight << "''\n";
         outfile << "Weight: " << weight << '\n';
       //  outfile << "BMI: " << bmi << '\n';

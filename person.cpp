@@ -63,9 +63,9 @@ void Person::set_height(int feet, int inch)
     height = h;
 }
 
-void Person::getcount(void)
+int Person::getcount()
 {
-    cout << count << endl;
+    return count;
 }
 
 double Person::printbmi()

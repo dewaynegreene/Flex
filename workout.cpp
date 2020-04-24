@@ -32,7 +32,7 @@ void Workout::set_completion(char choice)
             back = true;
             break;
         default:
-            cout << "You entered invalid choices! The valid choices have been saved.";
+            cout << "You entered invalid choices! The valid choices have been saved.\n";
     }
 
 }
