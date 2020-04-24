@@ -9,7 +9,6 @@ class atgym : public Workout
     protected:
 
     public:
-    
 
 };
 

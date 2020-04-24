@@ -31,7 +31,7 @@ class Workout : public Person
         virtual ~Workout();
         void set_completion(char choice); //This will change the boolean variable of each data member depending if the user entered its value or not
         void set_dotw(int dotw);
-        void get_dotw();
+        int get_dotw();
         void set_gym(char input);
         void read_file(); //not built
       //  virtual void write_file();
@@ -41,7 +41,7 @@ class Workout : public Person
         string glutes_workout();
         string abdomen_workout();
         string back_workout();
-        friend void set_sex();
+        friend string breaks(Workout);
       //  virtual string planner();  //virtual functions causing issues at compilation
 
 };

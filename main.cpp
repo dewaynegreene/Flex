@@ -27,6 +27,7 @@ int main()
 
    cout << "Workout Planner\n\n";
    
+    
    cout << "Do you have an account? (y/n): ";
    cin >> account;
    
@@ -62,7 +63,7 @@ int main()
 	//We can push this person to the vector of people we have created.
 
 	cout << "\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
-	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
+	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\n(Enter 0 when complete)\nSelections: ";
 
 	Workout w;
     atgym g;
@@ -74,8 +75,13 @@ int main()
 		w.set_completion(selection);
 	}
 
-	cout << "How many days of the week do you want to exercise?: "; //user validation 1-7
+	cout << "How many days of the week do you want to exercise?: ";
 	cin >> dotw;
+       while (dotw > 7 || dotw < 1) {
+           cout << "Yout must enter a number between 1 and 7"<< endl;
+           cout << "How many days of the week do you want to exercise?: ";
+           cin >> dotw;
+       }
 	w.set_dotw(dotw);
 
 	cout << "Do you have a gym membership? (y/n): ";
@@ -127,8 +133,8 @@ int main()
                 workouts.push_back(q);
             }
             if (w.glutes == true) {
-               // string g = g.glutes_workout(); //not working
-               // workouts.push_back(g);
+               //string g = g.glutes_workout();
+                //workouts.push_back(g);
             }
             if (w.abdomen == true) {
                 string a = g.abdomen_workout();
@@ -151,12 +157,17 @@ int main()
       //  outfile << "BMI: " << bmi << '\n';
         outfile << firstname << "'s Workout Planner\n";
         outfile << "-------------------------------\n";
-        for (const auto &e : workouts)
-            outfile << e << "\n";
        
+        //breaks(w);
+       for (int i = 1; i <= dotw; i++) {
+           outfile << "\nDay "<< i << ": " << endl ;
+           for (const auto &e : workouts)
+               outfile << "\t" << e << "\n";
+       }
 
     }//end of else if
-   
+        
+    cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
 	return 0;
 

@@ -42,14 +42,20 @@ void Workout::set_dotw(int dotw)
     dayoftheweek = dotw;
 }
 
-void Workout::get_dotw()
+int Workout::get_dotw()
 {
-    cout << dayoftheweek;
+    return dayoftheweek;
 }
 
 void Workout::set_gym(char input)
 {
     gym = input;
+}
+
+string breaks(Workout workout) {
+    if (workout.get_dotw() > 5)
+        return "With the amount of days you selected you will not have that many breaks between workouts. If you feel fatigued consider lowering the reps on the exercises";
+    return 0;
 }
 
 void read_file() {
