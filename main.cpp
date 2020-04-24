@@ -26,7 +26,7 @@ int main()
     int user;
     int update;
     vector<Person>vec;
-
+    Person p;
     
    cout << "Workout Planner\n\n";
    
@@ -59,7 +59,7 @@ int main()
 
         vec.push_back(f);
     }
-
+       
     for(int i=1, l=0; l < vec.size()-1; i++, l++)
     {
         cout << i << ". ";
@@ -90,9 +90,10 @@ int main()
        }
 
    }*/
+    
     if(account == 'n')
    {
-    Person p;
+    
 	cout << "\nEnter your first name: ";
 	cin >> firstname;
 	cout << "Enter your last name: ";
@@ -148,6 +149,7 @@ int main()
        }
 	w.set_dotw(dotw);
 
+    age_check(age, w);
 	cout << "Do you have a gym membership? (y/n): ";
 	cin >> gym;
 	w.set_gym(gym);
@@ -197,8 +199,8 @@ int main()
                 workouts.push_back(q);
             }
             if (w.glutes == true) {
-               //string g = g.glutes_workout();
-                //workouts.push_back(g);
+               string g = w.glutes_workout();
+                workouts.push_back(g);
             }
             if (w.abdomen == true) {
                 string a = g.abdomen_workout();
@@ -223,8 +225,9 @@ int main()
         outfile << firstname << "'s Workout Planner\n";
         outfile << "-------------------------------\n";
        
-        //breaks(w);
-       for (int i = 1; i <= dotw; i++) {
+       if (dotw > 5)
+           outfile << "With the amount of days you selected you will not have that many breaks between workouts. If you feel fatigued consider lowering the reps on the exercises";
+       for (int i = 1; i <= w.get_dotw(); i++) {
            outfile << "\nDay "<< i << ": " << endl ;
            for (const auto &e : workouts)
                outfile << "\t" << e << "\n";

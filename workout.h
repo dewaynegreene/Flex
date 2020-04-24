@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Workout : public Person
+class Workout
 {
     private:
         int dayoftheweek;
@@ -41,7 +41,7 @@ class Workout : public Person
         string glutes_workout();
         string abdomen_workout();
         string back_workout();
-        friend string breaks(Workout);
+        friend void age_check(int age, Workout w);
       //  virtual string planner();  //virtual functions causing issues at compilation
 
 };

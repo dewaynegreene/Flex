@@ -42,6 +42,15 @@ void Workout::set_dotw(int dotw)
     dayoftheweek = dotw;
 }
 
+void age_check(int age, Workout w) {
+    if (age > 55) {
+        if (w.get_dotw() >= 5) {
+            w.set_dotw(4);
+            cout << "\nIt is recommended that you only exercise a maximum of 4 days a week so you can have rest days in between.\n";
+        }
+    }
+}
+
 int Workout::get_dotw()
 {
     return dayoftheweek;
@@ -50,12 +59,6 @@ int Workout::get_dotw()
 void Workout::set_gym(char input)
 {
     gym = input;
-}
-
-string breaks(Workout workout) {
-    if (workout.get_dotw() > 5)
-        return "With the amount of days you selected you will not have that many breaks between workouts. If you feel fatigued consider lowering the reps on the exercises";
-    return 0;
 }
 
 void read_file() {
