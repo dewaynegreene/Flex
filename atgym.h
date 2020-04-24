@@ -5,7 +5,7 @@
 class atgym : public Workout
 {
     private:
-    
+
     protected:
 
     public:

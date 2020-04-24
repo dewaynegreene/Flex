@@ -68,7 +68,7 @@ void Person::getcount(void)
     cout << count << endl;
 }
 
-void Person::printbmi()
+double Person::printbmi()
 {
-    cout << (703 * (weight/(pow(height, 2))));
+    return (703 * (weight/(pow(height, 2))));
 }

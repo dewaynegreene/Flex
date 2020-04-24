@@ -57,6 +57,7 @@ int main()
 	cin >> weight;
 	p.set_weight(weight);
 
+    
 	//All this is just information about the user.
 	//We can push this person to the vector of people we have created.
 
@@ -89,58 +90,67 @@ int main()
 		cin >> equipment;
 		h.equipment(equipment);
             if (w.bicep == true) {
-                h.bicep_workout();
-                workouts.push_back(h.bicep_workout());
+                string b = h.bicep_workout();
+                workouts.push_back(b);
             }
-            if (h.tricep == true) {
-                h.tricep_workout();
-                workouts.push_back(h.tricep_workout());
+            if (w.tricep == true) {
+                string t = h.tricep_workout();
+                workouts.push_back(t);
             }
-            if (h.quad == true) {
-                h.quad_workout();
-                workouts.push_back(h.quad_workout());
+            if (w.quad == true) {
+                string q = h.quad_workout();
+                workouts.push_back(q);
             }
-            if (h.glutes == true) {
-                h.glutes_workout();
-                workouts.push_back(h.glutes_workout());
+            if (w.glutes == true) {
+                string g = h.glutes_workout();
+                workouts.push_back(g);
             }
-            if (h.abdomen == true) {
-                h.abdomen_workout();
-                workouts.push_back(h.abdomen_workout());
+            if (w.abdomen == true) {
+                string a = h.abdomen_workout();
+                workouts.push_back(a);
             }
-            if (h.back == true) {
-                h.back_workout();
-                workouts.push_back(h.abdomen_workout());
+            if (w.back == true) {
+                string back = h.back_workout();
+                workouts.push_back(back);
             }
-        } else if (gym == 'y') {
+    } else if (gym == 'y') {
             if (w.bicep == true) {
-                g.bicep_workout();
-                workouts.push_back(h.bicep_workout());
+                string b = g.bicep_workout();
+                workouts.push_back(b);
             }
-            if (h.tricep == true) {
-                g.tricep_workout();
-                workouts.push_back(h.tricep_workout());
+            if (w.tricep == true) {
+                string t = g.tricep_workout();
+                workouts.push_back(t);
             }
-            if (h.quad == true) {
-                g.quad_workout();
-                workouts.push_back(h.quad_workout());
+            if (w.quad == true) {
+                string q = g.quad_workout();
+                workouts.push_back(q);
             }
-            if (h.glutes == true) {
-                g.glutes_workout();
-                workouts.push_back(h.glutes_workout());
+            if (w.glutes == true) {
+               // string g = g.glutes_workout(); //not working
+               // workouts.push_back(g);
             }
-            if (h.abdomen == true) {
-                g.abdomen_workout();
-                workouts.push_back(h.abdomen_workout());
+            if (w.abdomen == true) {
+                string a = g.abdomen_workout();
+                workouts.push_back(a);
             }
-            if (h.back == true) {
-                g.back_workout();
-                workouts.push_back(h.back_workout());
+            if (w.back == true) {
+                string back = g.back_workout();
+                workouts.push_back(back);
             }
-        }
+    }
 
-       ofstream outfile;
-       outfile.open("workout_planner.txt");
+        //double bmi = p.printbmi;
+
+       ofstream outfile;                    //Write to workout_planner.txt
+       outfile.open("workout_planner.txt"); 
+        outfile << firstname << "'s Info\n";
+        outfile << "-------------------------------\n";
+        outfile << "Height: " << feetheight << "' " << inchheight << "''\n";
+        outfile << "Weight: " << weight << '\n';
+      //  outfile << "BMI: " << bmi << '\n';
+        outfile << firstname << "'s Workout Planner\n";
+        outfile << "-------------------------------\n";
         for (const auto &e : workouts)
             outfile << e << "\n";
        

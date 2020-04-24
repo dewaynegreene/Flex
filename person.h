@@ -30,7 +30,7 @@ class Person
 	int get_height();
 	void set_height(int feet, int inch);
 	static void getcount(void);  //Static member function
-	void printbmi();
+	double printbmi();
 	//Person operator+(const Person& b); //Overloading operator not created yet
 
 	
