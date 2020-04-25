@@ -25,6 +25,7 @@ int main()
 	char equipment;
     int user;
     int update;
+    char up;
     vector<Person>vec;
     Person p;
     
@@ -69,11 +70,15 @@ int main()
     cout << "\nChoice: ";
     cin >> user;
     
-    cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\nAge: " << vec[user-1].get_age() << "\nSex: " << vec[user-1].get_sex();
-    cout <<"\nHeight: " << vec[user-1].get_height() << " inches" << "\nWeight: " << vec[user-1].get_weight() << "\nBMI: " << vec[user-1].printbmi();
-
-    cout << "\n\nWhat would you like to update? ";
-    cin >> update;
+    cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\n1. Age: " << vec[user-1].get_age() << "\n2. Sex: " << vec[user-1].get_sex();
+    cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi();
+    
+       cout << "\n\nWould you like to update your information? (y/n): ";
+       cin >> up;
+       if (up == 'y') {
+           cout << "\nWhat would you like to update? ";
+           cin >> update;
+       }
    }
  /*  if(account == 'y' && vec.size() < 1)
    {
