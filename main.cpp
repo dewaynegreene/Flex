@@ -5,8 +5,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
+
+void print(ofstream&, int);
+void print(ofstream&, string);
+void print(ofstream&, int, int);
+void print(ofstream&, double );
+
 
 int main()
 {
@@ -102,12 +109,12 @@ int main()
 //                       case '3':
 //                            cout << "What is your new height? ";
 //                            cin >> new_height;
-//                            b.set_age(new_height);
+//                            b.set_height(new_height);
 //                           break;
 //                       case '4':
 //                            cout << "What is your new weight? ";
 //                            cin >> new_weight;
-//                            b.set_age(new_weight);
+//                            b.set_weight(new_weight);
 //                           break;
 //                       case '5':
 //                           cout << "Sorry your BMI is calculated from your height and weight./n";
@@ -264,14 +271,16 @@ int main()
         //double bmi = p.printbmi;
 
        ofstream outfile;                    //Write to workout_planner.txt
-       outfile.open("workout_planner.txt"); 
-        outfile << firstname << "'s Info\n";
+       outfile.open("workout_planner.txt");
+        print(outfile, firstname);
+        outfile << "'s Info\n";
         outfile << "-------------------------------\n";
-        outfile << "Age: " << age << '\n';
-        outfile << "Height: " << feetheight << "' " << inchheight << "\"\n";
-        outfile << "Weight: " << weight << '\n';
+        print(outfile, age);
+        print(outfile, feetheight, inchheight);
+        print(outfile, weight);
       //  outfile << "BMI: " << bmi << '\n';
-        outfile << firstname << "'s Workout Planner\n";
+        print(outfile, firstname);
+        outfile << "'s Workout Planner\n";
         outfile << "-------------------------------\n";
        
        if (dotw > 5)
@@ -281,8 +290,7 @@ int main()
            for (const auto &e : workouts)
                outfile << "\t" << e << "\n";
        }
-        
-       
+
    
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
@@ -290,4 +298,18 @@ int main()
 	return 0;
 
 
+}
+
+void print(ofstream &outfile, string firstname) {
+    outfile << firstname;
+}
+void print(ofstream &outfile, int age) {
+    outfile << "Age: " << age << '\n';
+}
+void print(ofstream &outfile, int feetheight, int inchheight) {
+    outfile << "Height: " << feetheight << "' " << inchheight << "\"\n";
+}
+void print(ofstream &outfile, double weight) {
+    outfile << "Weight: " << weight << '\n';
+    
 }

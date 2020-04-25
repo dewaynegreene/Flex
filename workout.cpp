@@ -1,5 +1,7 @@
 #include "workout.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -61,9 +63,5 @@ void Workout::set_gym(char input)
     gym = input;
 }
 
-void read_file() {
-    ifstream infile;
-    infile.open("profiles.txt");
-    
-    
-}
+
+

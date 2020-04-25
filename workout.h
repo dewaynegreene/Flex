@@ -2,6 +2,7 @@
 #define WORKOUT_H
 #include <string>
 #include <fstream>
+#include <iostream>
 #include "person.h"
 
 using namespace std;
@@ -33,8 +34,6 @@ class Workout
         void set_dotw(int dotw);
         int get_dotw();
         void set_gym(char input);
-        void read_file(); //not built
-      //  virtual void write_file();
         string bicep_workout(); //These will return workout for each variable
         string tricep_workout();
         string quad_workout();
@@ -43,6 +42,7 @@ class Workout
         string back_workout();
         friend void age_check(int age, Workout w);
       //  virtual string planner();  //virtual functions causing issues at compilation
+    
 
 };
 
