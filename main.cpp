@@ -14,18 +14,22 @@ int main()
     char account;
     string firstname;
     string lastname;
-	int age;
+	int age = '\0';
 	char sex;
-	int feetheight;
-	int inchheight;
-	double weight;
+	int feetheight = '\0';
+	int inchheight = '\0';
+	double weight = '\0';
 	char selection = '\0';
 	int dotw;
 	char gym;
 	char equipment;
     int user;
-    int update;
-    char up;
+//    char update = '\0';
+//    char up;
+//    int new_age;
+//    char new_sex;
+//    int new_height;
+//    int new_weight;
     vector<Person>vec;
     Person p;
     
@@ -73,13 +77,53 @@ int main()
     cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\n1. Age: " << vec[user-1].get_age() << "\n2. Sex: " << vec[user-1].get_sex();
     cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi();
     
-       cout << "\n\nWould you like to update your information? (y/n): ";
-       cin >> up;
-       if (up == 'y') {
-           cout << "\nWhat would you like to update? ";
-           cin >> update;
-       }
-   }
+//       cout << "\n\nWould you like to update your information? (y/n): ";
+//       cin >> up;
+//       if (up == 'y') {
+
+//           cout << "\nWhat would you like to update? (Enter 0 when done): ";
+//           Person b;
+//           while (update != '0') {
+//               cin >> update;
+//               switch(update)
+//                   {
+//                       case '0':
+//                           break;
+//                       case '1':
+//                           cout << "What is your new age? ";
+//                           cin >> new_age;
+//                           b.set_age(new_age);
+//                           break;
+//                       case '2':
+//                            cout << "What is your new Sex? ";
+//                            cin >> new_sex;
+//                            b.set_sex(new_sex);
+//                           break;
+//                       case '3':
+//                            cout << "What is your new height? ";
+//                            cin >> new_height;
+//                            b.set_age(new_height);
+//                           break;
+//                       case '4':
+//                            cout << "What is your new weight? ";
+//                            cin >> new_weight;
+//                            b.set_age(new_weight);
+//                           break;
+//                       case '5':
+//                           cout << "Sorry your BMI is calculated from your height and weight./n";
+//                           break;
+//                       default:
+//                           cout << "You entered invalid choices! The valid choices have been saved.\n";
+//                   }
+//               vec.push_back(b);
+//           }
+           firstname = vec[user-1].get_name();
+           age = vec[user-1].get_age();
+           sex = vec[user-1].get_sex();
+           feetheight = vec[user-1].get_height() / 12;
+           inchheight = vec[user-1].get_height() % 12;
+           weight = vec[user-1].get_weight();
+       
  /*  if(account == 'y' && vec.size() < 1)
    {
        char choice;
@@ -96,7 +140,7 @@ int main()
 
    }*/
     
-    if(account == 'n')
+   } else if(account == 'n')
    {
     
 	cout << "\nEnter your first name: ";
@@ -128,12 +172,12 @@ int main()
     profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
     profile.close();
 
-
+   }
 	//All this is just information about the user.
 	//We can push this person to the vector of people we have created.
 
-	cout << "\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
-	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\n(Enter 0 when complete)\nSelections: ";
+	cout << "\n\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
+	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
 
 	Workout w;
     atgym g;
@@ -148,7 +192,7 @@ int main()
 	cout << "How many days of the week do you want to exercise?: ";
 	cin >> dotw;
        while (dotw > 7 || dotw < 1) {
-           cout << "Yout must enter a number between 1 and 7"<< endl;
+           cout << "You must enter a number between 1 and 7"<< endl;
            cout << "How many days of the week do you want to exercise?: ";
            cin >> dotw;
        }
@@ -224,7 +268,7 @@ int main()
         outfile << firstname << "'s Info\n";
         outfile << "-------------------------------\n";
         outfile << "Age: " << age << '\n';
-        outfile << "Height: " << feetheight << "' " << inchheight << "''\n";
+        outfile << "Height: " << feetheight << "' " << inchheight << "\"\n";
         outfile << "Weight: " << weight << '\n';
       //  outfile << "BMI: " << bmi << '\n';
         outfile << firstname << "'s Workout Planner\n";
@@ -237,11 +281,12 @@ int main()
            for (const auto &e : workouts)
                outfile << "\t" << e << "\n";
        }
-
-    }//end of else if
         
+       
+   
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
+       
 	return 0;
 
 
