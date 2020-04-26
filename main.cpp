@@ -3,6 +3,7 @@
 #include "athome.h"
 #include "atgym.h"
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include <vector>
 #include <fstream>
@@ -90,6 +91,7 @@ int main()
 
         vec.push_back(p);
     }
+    iprofile.close();
        int num_users=0;
     for(int i=1, l=0; l < Person::getcount(); i++, l++)
     {
@@ -151,6 +153,30 @@ int main()
                cout << "would you like to update another item? (y/n): ";
                cin >> enter;
             } while (enter != 'n');
+
+            //update profiles
+            ofstream profileupdate;
+            profileupdate.open("update.txt");
+            for(int t=0;t<Person::getcount();t++)
+            {
+                if(t==0)
+                {
+                    int inches = vec[t].get_height();
+                    int feet1 = inches/12;
+                    int inch1 = inches%12;
+                    profileupdate << vec[t].get_name() << '\t' << vec[t].get_age() << '\t' << vec[t].get_sex() << '\t' << feet1 << '\t' << inch1 << '\t' << vec[t].get_weight();
+                }
+                else
+                {
+                    int inches = vec[t].get_height();
+                    int feet1 = inches/12;
+                    int inch1 = inches%12;
+                    profileupdate << '\n' << vec[t].get_name() << '\t' << vec[t].get_age() << '\t' << vec[t].get_sex() << '\t' << feet1 << '\t' << inch1 << '\t' << vec[t].get_weight();
+                }
+            }
+            profileupdate.close();
+            remove("profiles.txt");
+            rename("update.txt", "profiles.txt");
        }
            firstname = vec[user-1].get_name();
            age = vec[user-1].get_age();
@@ -158,6 +184,15 @@ int main()
            feetheight = vec[user-1].get_height() / 12;
            inchheight = vec[user-1].get_height() % 12;
            weight = vec[user-1].get_weight();
+        
+        cout << "\n\nWould you like to update your workout? (y/n): ";
+        cin >> proceed;
+        if(proceed == 'y'){}
+        else
+        {
+            cout << "Bye!";
+            return 0;
+        }
 
         if(up == 2)
         {
