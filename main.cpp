@@ -11,7 +11,7 @@
 #include <limits>
 
 using namespace std;
-
+//prototypes for overloaded functions/polymorphism
 void print(ofstream&, int);
 void print(ofstream&, string);
 void print(ofstream&, int, int);
@@ -35,17 +35,17 @@ int main()
 	int dotw;
 	char gym;
 	char equipment;
-    int user;
+    int user = '\0';
     int update;
     char enter;
-    int up;
+    int up = '\0';
     int new_age;
     char new_sex;
     int new_height;
     int new_weight;
     int compare;
     int compare1;
-    char proceed;
+    char proceed = '\0';
     char ready;
     vector<Person>vec;
    
@@ -68,7 +68,7 @@ int main()
         ifstream iprofile;
         iprofile.open("profiles.txt");
         string line;
-        if (iprofile.eof())
+        if (iprofile.eof())//if file is empty
         {
             cout << "There are no profiles registered. Exit the program and try again." << endl;
             return 1;
@@ -125,7 +125,7 @@ int main()
 
             do 
             {
-                cout << "\nEnter one item you would like to update (Scroll up for options): ";
+                cout << "\nEnter one item you would like to update (Scroll up for options): ";//update
                 cin >> update;
                 int_check(update);
                 if(update == 1) 
@@ -204,7 +204,7 @@ int main()
         if(up == 2)
         {
             cout << "Choose a profile to compare with:\n";
-            for(int i=0; i < Person::getcount(); i++)
+            for(int i=0; i < Person::getcount(); i++)//static function
             {
                 while(i != user-1)
                 {
@@ -221,7 +221,7 @@ int main()
             cin >> compare1;
             if(compare1 == 1)
             {
-                if(vec[user-1] < vec[compare-1])
+                if(vec[user-1] < vec[compare-1]) //overloading operators
                 {
                     cout << "\nYou are older than " << vec[compare-1].get_name();
                 }
@@ -235,7 +235,7 @@ int main()
 
             if(compare1 == 2)
             {
-                if(vec[compare-1] > vec[user-1])
+                if(vec[compare-1] > vec[user-1]) //overloading opertors
                 {
                     cout << "\nYou are taller than " << vec[compare-1].get_name();
                 }
@@ -352,7 +352,7 @@ int main()
     switch (gym) 
     {
     
-        case 'n':
+        case 'n'://doesn't have a gym membership
 		cout << "\nDo you have gym equipment at home? (y/n): ";
 		cin >> equipment;
 		h.equipment(equipment);
@@ -388,7 +388,7 @@ int main()
             workouts.push_back(back);
         }
             break;
-        case 'y':
+        case 'y': //has gym equipment
         if (w.bicep == true) 
         {
             string b = g.bicep_workout();
@@ -457,7 +457,7 @@ int main()
        }
 
    
-    cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
+    cout << "\n\nYour workout is available in the workout_planner.txt file.\nEnjoy your workout!" << endl;
     outfile.close();
        
 
