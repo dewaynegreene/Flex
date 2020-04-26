@@ -47,6 +47,7 @@ int main()
     int compare;
     int compare1;
     char proceed;
+    char ready;
     vector<Person>vec;
    
     
@@ -177,22 +178,24 @@ int main()
             profileupdate.close();
             remove("profiles.txt");
             rename("update.txt", "profiles.txt");
-       }
-           firstname = vec[user-1].get_name();
-           age = vec[user-1].get_age();
-           sex = vec[user-1].get_sex();
-           feetheight = vec[user-1].get_height() / 12;
-           inchheight = vec[user-1].get_height() % 12;
-           weight = vec[user-1].get_weight();
+       
+            firstname = vec[user-1].get_name();
+            age = vec[user-1].get_age();
+            sex = vec[user-1].get_sex();
+            feetheight = vec[user-1].get_height() / 12;
+            inchheight = vec[user-1].get_height() % 12;
+            weight = vec[user-1].get_weight();
         
-        cout << "\n\nWould you like to update your workout? (y/n): ";
-        cin >> proceed;
-        if(proceed == 'y'){}
-        else
-        {
-            cout << "Bye!";
-            return 0;
+            cout << "\nWould you like to update your workout? (y/n): ";
+            cin >> proceed;
+            if(proceed == 'y'){}
+            else
+            {
+                cout << "Bye!";
+                return 0;
+            }
         }
+
 
         if(up == 2)
         {
@@ -224,15 +227,6 @@ int main()
                 }
                 cout << "\nYou are " << vec[user-1].get_age() << '\n';
                 cout << vec[compare-1].get_name() << " is " << vec[compare-1].get_age();
-                
-                // cout << "\n\nWould you like to update your workout? (y/n): ";
-                // cin >> proceed;
-                // if(proceed == 'y'){}
-                // else
-                // {
-                //     cout << "Bye!";
-                //     return 0;
-                // }
             }
 
             if(compare1 == 2)
@@ -300,13 +294,26 @@ int main()
 
     ofstream profile;
     profile.open("profiles.txt", ios::app);
-    profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
+    profile << '\n' << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight;
     profile.close();
 
+    cout << "Are you ready to make your first workout planner? (y/n): ";
+    cin >> ready;
+    if(proceed == 'n'){}
+    else
+    {
+        cout << "Bye!";
+        return 0;
+    }
    }
-	//All this is information about the user.
 
-	cout << "\n\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
+
+	if(up ==3)
+    {
+        firstname = vec[user-1].get_name();
+    }
+    
+    cout << "\n\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
 	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
 
 	Workout w;
