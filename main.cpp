@@ -18,7 +18,7 @@ void print(ofstream&, double );
 int main()
 {
    
-    char account;
+    int account;
     string firstname;
     string lastname;
 	int age = '\0';
@@ -31,6 +31,9 @@ int main()
 	char gym;
 	char equipment;
     int user;
+    char choice = 'y';
+    int pick;
+
 //    char update = '\0';
 //    char up;
 //    int new_age;
@@ -40,13 +43,34 @@ int main()
     vector<Person>vec;
     Person p;
     
-   cout << "Workout Planner\n\n";
-   
+   cout << "Welcome to the Workout Planner\n\n";
+   cout << "MAIN MENU\n" << "---------------------\n" << "1. Sign in\n2. Make an account\n3. See what others are up to\n\n";
     
-   cout << "Do you have an account? (y/n): ";
+   cout << "Choice: ";
    cin >> account;
+
+   if(account == 3)
+   {
+        while(choice == 'y')
+        {
+            //Here we use the overload operator to compare.
+            cout << "\nWhat would you like to see?\n";
+            cout << "---------------------------\n";
+            cout << "1. Age";
+            cout << "\n\nChoice: ";
+            cin >> pick;
+            if(pick == 1)
+            {
+                //age
+            }
+            cout << "Would you like to see anything else? (y/n): ";
+            cin >> choice;
+        }
+        return 0;
+   }
+
    
-   if(account == 'y')
+   if(account == 1)
    {
 	cout << "Which one is you?\n";
 	
@@ -147,7 +171,7 @@ int main()
 
    }*/
     
-   } else if(account == 'n')
+   } else if(account == '2')
    {
     
 	cout << "\nEnter your first name: ";
@@ -294,6 +318,10 @@ int main()
    
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
+    if(account == 3)
+    {
+        cout << "yuh";
+    }
        
 	return 0;
 
