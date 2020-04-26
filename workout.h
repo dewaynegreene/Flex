@@ -41,7 +41,6 @@ class Workout
         string abdomen_workout();
         string back_workout();
         friend void age_check(int age, Workout w);
-      //  virtual string planner();  //virtual functions causing issues at compilation
     
 
 };

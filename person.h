@@ -13,7 +13,6 @@ class Person
 	int height; // in inches
 	double weight;
 	static int count; //Static member variable
-	//Workout Workout ;  not created yet
 	
     protected:
 
