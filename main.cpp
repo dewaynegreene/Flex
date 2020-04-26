@@ -56,50 +56,6 @@ int main()
     
    cout << "Choice: ";
    cin >> account;
-//    int_check(account);
-//    if(account == 3)
-//    {
-//         while(choice == 'y')
-//         {
-//             //Here we use the overload operator to compare.
-//             cout << "\nWhat would you like to see?\n";
-//             cout << "---------------------------\n";
-//             cout << "1. Age";
-//             cout << "\n\nChoice: ";
-//             cin >> pick;
-//             if(pick == 1)
-//             {
-//                 //age
-//             }
-//             cout << "Would you like to see anything else? (y/n): ";
-//             cin >> choice;
-//         }
-//         return 0;
-//    }
-
-//    if(account == 3)
-//    {
-//         while(choice == 'y')
-//         {
-//             //Here we use the overload operator to compare.
-//             cout << "\nWhat would you like to see?\n";
-//             cout << "---------------------------\n";
-//             cout << "1. Age";
-//             cout << "\n\nChoice: ";
-//             cin >> pick;
-//             if(pick == 1)
-//             {
-//                 for(int i=0; i < vec.size(); i++)
-//                 {
-//                     if
-//                 }
-//             }
-//             cout << "Would you like to see anything else? (y/n): ";
-//             cin >> choice;
-//         }
-//         return 0;
-//    }
-
    
    if(account == 1)
    {
@@ -245,47 +201,8 @@ int main()
                     return 0;
                 }
             }
-       
-    
         }
    }
-
-//      if(account == 3)
-//      {
-//        while(choice == 'y')
-//        {
-//            //Here we use the overload operator to compare.
-//            cout << "\nWhat would you like to see?\n";
-//            cout << "---------------------------\n";
-//            cout << "1. Age";
-//            cout << "\n\nChoice: ";
-//            cin >> pick;
-//            if(pick == 1)
-//            {
-//                /*for(int i=0; i < vec.size(); i++)
-//                {
-//                    for(int j = i + 1; j < vec.size(); j++)
-//                    {
-//                        if(vec[j] < vec[i])
-//                        {
-//                            Person temp = vec[i];
-//                            vec[i] = vec[j];
-//                            vec[j] = Person temp;
-//                        }
-//                    }
-//                }*/
-//
-//
-//            }
-//            cout << "Would you like to see anything else? (y/n): ";
-//            cin >> choice;
-//        }
-//        return 0;
-//      }
-   
-   
-   
-   
    
    if(account == 2)
    {
@@ -321,8 +238,7 @@ int main()
     profile.close();
 
    }
-	//All this is just information about the user.
-	//We can push this person to the vector of people we have created.
+	//All this is information about the user.
 
 	cout << "\n\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
 	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
