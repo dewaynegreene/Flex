@@ -81,5 +81,10 @@ bool operator< (Person& p1, Person& p2) //overloading operator
 
 bool operator> (Person& p1, Person& p2)//overloading operator
 {
+<<<<<<< HEAD
     return p1.get_height() > p2.get_height();
 }
+=======
+    return p1.get_height() < p2.get_height();
+}
+>>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
