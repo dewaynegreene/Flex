@@ -92,12 +92,11 @@ int main()
             vec.push_back(p);
         }
         iprofile.close();
-        int num_users=0;
         
         for(int i=1, l=0; l < Person::getcount(); i++, l++)
         {
             cout << i << ". ";
-            num_users++;
+
             cout << vec[l].get_name() << '\n';
         }
     
@@ -105,7 +104,7 @@ int main()
         cout << "Choice: ";
         cin>> user;
         int_check(user);
-        if (user > num_users && user < 1) 
+        while (user > Person::getcount() || user < 1) 
         {
             cin.clear();
             cout << "You must enter a number corresponding to a profile \nChoice: ";
@@ -203,7 +202,7 @@ int main()
 
         if(up == 2)
         {
-            cout << "Choose a profile to compare with:\n";
+            cout << "Choose a profile to compare with:\n";  //compare
             for(int i=0; i < Person::getcount(); i++)//static function
             {
                 while(i != user-1)
@@ -215,6 +214,13 @@ int main()
             }
             cout << "\nChoice: ";
             cin >> compare;
+
+            while (compare > Person::getcount() || compare < 1 || compare == user) 
+            {
+                cin.clear();
+                cout << "You must enter a number corresponding to a profile \nChoice: ";
+                cin >> compare;
+            }
 
             cout << "\nWhat would you like to compare with " << vec[compare-1].get_name() << "?\n\n1. Age\n2. Height\n";
             cout << "\nChoice: ";
@@ -339,6 +345,7 @@ int main()
         cout << "\nYou must enter a number between 1 and 7"<< endl;
         cout << "How many days of the week do you want to exercise?: ";
         cin >> dotw;
+        int_check(dotw);
     }
 
 	w.set_dotw(dotw);
