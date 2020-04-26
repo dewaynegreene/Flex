@@ -159,12 +159,6 @@ int main()
            inchheight = vec[user-1].get_height() % 12;
            weight = vec[user-1].get_weight();
 
-       ofstream profile;
-       profile.open("profiles.txt", ios::app);
-       if (vec[user-1].get_name().find(firstname))
-       profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
-
-
         if(up == 2)
         {
             cout << "Choose a profile to compare with:\n";
@@ -368,8 +362,10 @@ int main()
 	return 0;
 } //end of main
 
-void print(ofstream &outfile, string firstname) {
-    outfile << firstname;
+
+//polymorphism/ overloading functions
+void print(ofstream &outfile, string name) {
+    outfile << name;
 }
 void print(ofstream &outfile, int age) {
     outfile << "Age: " << age << "\n";
@@ -384,6 +380,8 @@ void print(ofstream &outfile, double weight, int feetheight, int inchheight) {
     double bmi = 703 * (weight/(pow(((feetheight * 12) + inchheight), 2)));
     outfile << "BMI: " << bmi << "\n";
 }
+
+//checks if user input is an integer
 void int_check(int i) {
     while(true) {
         if(cin.fail()) {
