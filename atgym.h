@@ -9,6 +9,12 @@ class atgym : public Workout
     protected:
 
     public:
+           string bicep_workout();
+           string tricep_workout();
+           string quad_workout();
+           string glutes_workout();
+           string abdomen_workout();
+           string back_workout();
 
 };
 
