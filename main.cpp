@@ -188,13 +188,6 @@ int main()
             profileupdate.close();
             remove("profiles.txt");
             rename("update.txt", "profiles.txt");
-       
-            firstname = vec[user-1].get_name();
-            age = vec[user-1].get_age();
-            sex = vec[user-1].get_sex();
-            feetheight = vec[user-1].get_height() / 12;
-            inchheight = vec[user-1].get_height() % 12;
-            weight = vec[user-1].get_weight();
         
             cout << "\nWould you like to update your workout? (y/n): ";
             cin >> proceed;
@@ -273,7 +266,7 @@ int main()
                 return 0;
             }
         }
-   }
+    }
    Person f;
    if(account == 2)
    {
@@ -300,7 +293,7 @@ int main()
         int_check(weight);
 	    f.set_weight(weight);
 
-         //Here we create their account in the profiles file
+        //Here we create their account in the profiles file
 
         ofstream profile;
         profile.open("profiles.txt", ios::app);
@@ -431,6 +424,13 @@ int main()
             cout << "\nYou must enter either y or n to continue.\nExit the program and try again." << endl;
             return 1;
     }
+
+    firstname = vec[user-1].get_name();
+    age = vec[user-1].get_age();
+    sex = vec[user-1].get_sex();
+    feetheight = vec[user-1].get_height() / 12;
+    inchheight = vec[user-1].get_height() % 12;
+    weight = vec[user-1].get_weight();
 
     ofstream outfile;                    //Write to workout_planner.txt
     outfile.open("workout_planner.txt");
