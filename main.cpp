@@ -200,36 +200,36 @@ int main()
                 // }
             }
 
-            if(compare1 == 2)
-            {
-                if(vec[compare-1] > vec[user-1])
-                {
-                    cout << "\nYou are taller than " << vec[compare-1].get_name();
-                }
-                else
-                {
-                    cout << "\nYou are shorter than " << vec[compare-1].get_name();
-                }
-                
-                int inches = vec[user-1].get_height();
-                int feet1 = inches/12;
-                int inch1 = inches%12;
-                int inchesc = vec[compare-1].get_height();
-                int feet2 = inchesc/12;
-                int inch2 = inchesc%12;
-
-                
-                
-                cout << "\nYou are " << feet1 <<"' " << inch1 << "\"" << '\n';
-                cout << vec[compare-1].get_name() << " is " << feet2 << "' " << inch2 << "\"";
-            }
+//            if(compare1 == 2)
+//            {
+//                if(vec[compare-1] > vec[user-1])
+//                {
+//                    cout << "\nYou are taller than " << vec[compare-1].get_name();
+//                }
+//                else
+//                {
+//                    cout << "\nYou are shorter than " << vec[compare-1].get_name();
+//                }
+//
+//                int inches = vec[user-1].get_height();
+//                int feet1 = inches/12;
+//                int inch1 = inches%12;
+//                int inchesc = vec[compare-1].get_height();
+//                int feet2 = inchesc/12;
+//                int inch2 = inchesc%12;
+//
+//
+//
+//                cout << "\nYou are " << feet1 <<"' " << inch1 << "\"" << '\n';
+//                cout << vec[compare-1].get_name() << " is " << feet2 << "' " << inch2 << "\"";
+//            }
             
             cout << "\n\nWould you like to update your workout? (y/n): ";
             cin >> proceed;
             if(proceed == 'y'){}
             else
             {
-                cout << "Bye!";
+                cout << "Bye!" << endl;
                 return 0;
             }
         }
@@ -271,6 +271,7 @@ int main()
    }
 	//All this is information about the user.
 
+    
 	cout << "\n\nWelcome " << firstname << "! What body parts would you like to add to your plan? (Enter the corresponding numbers seperated by a space. Enter '0' when you are done) \n";
 	cout << "1.Triceps\n2.Biceps\n3.Quads\n4.Glutes\n5.Abdomen\n6.Back\n\nSelections: ";
 
