@@ -54,7 +54,13 @@ int main()
     
    cout << "Choice: ";
    cin >> account;
-   
+    int_check(account);
+    while (account > 2) {
+        cout << "Enter 1 or 2 to make a selection. \nChoice: ";
+        cin >> account;
+        int_check(account);
+    }
+       
    if(account == 1)
    {
 
@@ -106,7 +112,7 @@ int main()
     
        cout << "\n\nWhat would you like to do?\n\n1. Update my information\n2. Compare your work\n3. Plan a new workout\n\nChoice: ";
        cin >> up;
-
+       int_check(up);
        
 
        if (up == 1) {
@@ -326,7 +332,7 @@ int main()
             }
                 break;
         default:
-            cout << "\nYou must enter either y or n to continue." << endl;
+            cout << "\nYou must enter either y or n to continue.\nExit the program and try again." << endl;
             return 1;
     }
 
