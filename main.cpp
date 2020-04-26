@@ -12,7 +12,6 @@
 
 using namespace std;
 
-//prototypes for overload functions
 void print(ofstream&, int);
 void print(ofstream&, string);
 void print(ofstream&, int, int);
@@ -23,8 +22,7 @@ void int_check(int i);
 
 
 int main()
-{
-   
+{  
     int account;
     string firstname;
     string lastname;
@@ -65,23 +63,7 @@ int main()
         int_check(account);
     }
        
-<<<<<<< HEAD
-   if(account == 1)
-   {
-
-	
-    ifstream iprofile;
-    iprofile.open("profiles.txt");//file to store profiles
-    string line;
-       if (iprofile.eof()){
-        cout << "There are no profiles registered. Exit the program and try again." << endl;
-        return 1;
-       }
-        
-    while(!iprofile.eof())
-=======
     if(account == 1)
->>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
     {
         ifstream iprofile;
         iprofile.open("profiles.txt");
@@ -173,18 +155,11 @@ int main()
                     cin >> new_weight;
                     int_check(new_weight);
                     vec[user-1].set_weight(new_weight);
-<<<<<<< HEAD
-               }
-               if(update == 5) {
-                    cout << "Sorry your BMI is calculated from your height and weight and can't be manually changed.\n";
-               }
-=======
                 }
                 if(update == 5) 
                 {
                     cout << "Sorry your BMI is calculated from your height and weight.\n";
                 }
->>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
                
                 cout << "would you like to update another item? (y/n): ";
                 cin >> enter;
@@ -302,38 +277,6 @@ int main()
    Person f;
    if(account == 2)
    {
-<<<<<<< HEAD
-    //creating profile
-	cout << "\nEnter your first name: ";
-	cin >> firstname;
-	cout << "Enter your last name: ";
-	cin >> lastname;
-	f.set_name(firstname, lastname);
-	cout << "Enter your age: ";
-	cin >> age;
-    int_check(age);
-	f.set_age(age);
-	cout << "Enter your sex (m/f): ";
-	cin >> sex;
-	f.set_sex(sex);
-	cout << "Enter your height (feet inches): ";
-	cin >> feetheight;
-    int_check(feetheight);
-	cin >> inchheight;
-    int_check(inchheight);
-	f.set_height(feetheight, inchheight);
-	cout << "Enter your weight (lbs): ";
-	cin >> weight;
-    int_check(weight);
-	f.set_weight(weight);
-
-    //Here we create their account in the profiles.txt file
-
-    ofstream profile;
-    profile.open("profiles.txt", ios::app);
-    profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
-    profile.close();
-=======
         cout << "\nEnter your first name: ";
 	    cin >> firstname;
 	    cout << "Enter your last name: ";
@@ -374,7 +317,6 @@ int main()
             return 0;
         }
     }
->>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
 
 
 	if(up ==3)
@@ -417,7 +359,7 @@ int main()
     switch (gym) 
     {
     
-        case 'n'://if they don't have a gym membership
+        case 'n':
 		cout << "\nDo you have gym equipment at home? (y/n): ";
 		cin >> equipment;
 		h.equipment(equipment);
@@ -437,35 +379,6 @@ int main()
             string q = h.quad_workout();
             workouts.push_back(q);
             }
-<<<<<<< HEAD
-                break;
-        case 'y'://if they have a gym membership
-            if (w.bicep == true) {
-                string b = g.bicep_workout();
-                workouts.push_back(b);
-            }
-            if (w.tricep == true) {
-                string t = g.tricep_workout();
-                workouts.push_back(t);
-            }
-            if (w.quad == true) {
-                string q = g.quad_workout();
-                workouts.push_back(q);
-            }
-            if (w.glutes == true) {
-               string glutes = g.glutes_workout();
-                workouts.push_back(glutes);
-            }
-            if (w.abdomen == true) {
-                string a = g.abdomen_workout();
-                workouts.push_back(a);
-            }
-            if (w.back == true) {
-                string back = g.back_workout();
-                workouts.push_back(back);
-            }
-                break;
-=======
         if (w.glutes == true) 
         {
             string g = h.glutes_workout();
@@ -514,26 +427,11 @@ int main()
             workouts.push_back(back);
         }
         break;
->>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
         default:
             cout << "\nYou must enter either y or n to continue.\nExit the program and try again." << endl;
             return 1;
     }
 
-<<<<<<< HEAD
-       ofstream outfile;//Write to workout_planner.txt
-       outfile.open("workout_planner.txt");
-        outfile << "-------------------------------\n";
-        print(outfile, firstname);
-        outfile << "'s Info\n";
-        outfile << "-------------------------------\n";
-        print(outfile, age);
-        print(outfile, feetheight, inchheight);
-        print(outfile, weight);
-        print(outfile, weight, feetheight, inchheight);
-        outfile << "-------------------------------\n";
-        print(outfile, firstname);
-=======
     ofstream outfile;                    //Write to workout_planner.txt
     outfile.open("workout_planner.txt");
     outfile << "-------------------------------\n";
@@ -546,7 +444,6 @@ int main()
     print(outfile, weight, feetheight, inchheight);
     outfile << "-------------------------------\n";
     print(outfile, firstname);
->>>>>>> d4bef36155612c3383753f1d3e20050239019a4c
         
     outfile << "'s Workout Planner\n";
     outfile << "-------------------------------\n";
