@@ -155,6 +155,7 @@ int main()
        }
            firstname = vec[user-1].get_name();
            age = vec[user-1].get_age();
+           sex = vec[user-1].get_sex();
            feetheight = vec[user-1].get_height() / 12;
            inchheight = vec[user-1].get_height() % 12;
            weight = vec[user-1].get_weight();
@@ -404,11 +405,15 @@ int main()
    
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
+<<<<<<< HEAD
+    outfile.close();
+=======
     if(account == 3)
     {
         cout << "yuh";
     }
        
+>>>>>>> fe0f2278c61f2e88b237613f7ecee366884737df
 	return 0;
 } //end of main
 
