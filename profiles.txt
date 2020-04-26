@@ -1,4 +1,2 @@
 Andres Greene	22	m	5	9	150
 Garrett Ford	20	m	5	11	165
-Najji	Greene	17	m	6	0	150
-Alex	Ortega	21	m	5	7	150
