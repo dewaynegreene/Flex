@@ -70,10 +70,12 @@ int Person::getcount()
 
 double Person::printbmi()
 {
-    return (703 * (weight/(pow(height, 2))));
+    double bmi = 703 * (weight/(pow(height, 2)));
+    return bmi;
 }
 
 bool operator< (Person& p1, Person& p2)
 {
     return p1.get_age() > p2.get_age();
 }
+

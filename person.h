@@ -32,7 +32,6 @@ class Person
 	static int getcount();  //Static member function
 	double printbmi();
 	friend bool operator< (const Person& p1, const Person& p2);
-	//bool operator >=(const Person &p1, const Person &p2);
 
 	
 };

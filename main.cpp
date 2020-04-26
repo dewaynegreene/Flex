@@ -6,13 +6,15 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <math.h>
 
 using namespace std;
 
 void print(ofstream&, int);
 void print(ofstream&, string);
 void print(ofstream&, int, int);
-void print(ofstream&, double );
+void print(ofstream&, double);
+void print(ofstream&, double, int, int);
 
 
 int main()
@@ -33,13 +35,13 @@ int main()
     int user;
     char choice = 'y';
     int pick;
-
-//    char update = '\0';
-//    char up;
-//    int new_age;
-//    char new_sex;
-//    int new_height;
-//    int new_weight;
+    int update;
+    char enter;
+    char up;
+    int new_age;
+    char new_sex;
+    int new_height;
+    int new_weight;
     vector<Person>vec;
     Person p;
     
@@ -71,8 +73,10 @@ int main()
 
    
    if(account == 1)
+    
    {
-	cout << "Which one is you?\n";
+	Person f;
+    cout << "Which one is you?\n";
 	
     ifstream iprofile;
     iprofile.open("profiles.txt");
@@ -80,7 +84,7 @@ int main()
 
     while(!iprofile.eof())
     {
-        Person f;
+        
         string filefname, filelname;
         char filesex;
         int filefeet, fileinch, fileage;
@@ -108,49 +112,43 @@ int main()
     cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\n1. Age: " << vec[user-1].get_age() << "\n2. Sex: " << vec[user-1].get_sex();
     cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi();
     
-//       cout << "\n\nWould you like to update your information? (y/n): ";
-//       cin >> up;
-//       if (up == 'y') {
-
-//           cout << "\nWhat would you like to update? (Enter 0 when done): ";
-//           Person b;
-//           while (update != '0') {
-//               cin >> update;
-//               switch(update)
-//                   {
-//                       case '0':
-//                           break;
-//                       case '1':
-//                           cout << "What is your new age? ";
-//                           cin >> new_age;
-//                           b.set_age(new_age);
-//                           break;
-//                       case '2':
-//                            cout << "What is your new Sex? ";
-//                            cin >> new_sex;
-//                            b.set_sex(new_sex);
-//                           break;
-//                       case '3':
-//                            cout << "What is your new height? ";
-//                            cin >> new_height;
-//                            b.set_height(new_height);
-//                           break;
-//                       case '4':
-//                            cout << "What is your new weight? ";
-//                            cin >> new_weight;
-//                            b.set_weight(new_weight);
-//                           break;
-//                       case '5':
-//                           cout << "Sorry your BMI is calculated from your height and weight./n";
-//                           break;
-//                       default:
-//                           cout << "You entered invalid choices! The valid choices have been saved.\n";
-//                   }
-//               vec.push_back(b);
-//           }
+       cout << "\n\nWould you like to update your information? (y/n): ";
+       cin >> up;
+       if (up == 'y') {
+            do {
+            cout << "\nEnter one item you would like to update: ";
+            cin >> update;
+  
+               if(update == 1) {
+                    cout << "What is your new age? ";
+                    cin >> new_age;
+                    vec[user-1].set_age(new_age);
+               }
+               if(update == 2) {
+                    cout << "What is your new Sex? ";
+                    cin >> new_sex;
+                    vec[user-1].get_sex();
+               }
+               if(update == 3) {
+                    cout << "What is your new height?(in inches) ";
+                    cin >> new_height;
+                    vec[user-1].set_height(new_height/12,new_height%12);
+               }
+               if(update == 4) {
+                    cout << "What is your new weight? ";
+                    cin >> new_weight;
+                    vec[user-1].set_weight(new_weight);
+               }
+               if(update == 5) {
+                    cout << "Sorry your BMI is calculated from your height and weight./n";
+               }
+               
+               cout << "would you like to update another item? (y/n): ";
+               cin >> enter;
+            } while (enter != 'n');
+       }
            firstname = vec[user-1].get_name();
            age = vec[user-1].get_age();
-           sex = vec[user-1].get_sex();
            feetheight = vec[user-1].get_height() / 12;
            inchheight = vec[user-1].get_height() % 12;
            weight = vec[user-1].get_weight();
@@ -171,7 +169,7 @@ int main()
 
    }*/
     
-   } else if(account == '2')
+   }if(account == '2')
    {
     
 	cout << "\nEnter your first name: ";
@@ -302,7 +300,7 @@ int main()
         print(outfile, age);
         print(outfile, feetheight, inchheight);
         print(outfile, weight);
-      //  outfile << "BMI: " << bmi << '\n';
+        print(outfile, weight, feetheight, inchheight);
         print(outfile, firstname);
         outfile << "'s Workout Planner\n";
         outfile << "-------------------------------\n";
@@ -324,20 +322,21 @@ int main()
     }
        
 	return 0;
-
-
-}
+} //end of main
 
 void print(ofstream &outfile, string firstname) {
     outfile << firstname;
 }
 void print(ofstream &outfile, int age) {
-    outfile << "Age: " << age << '\n';
+    outfile << "Age: " << age << "\n";
 }
 void print(ofstream &outfile, int feetheight, int inchheight) {
     outfile << "Height: " << feetheight << "' " << inchheight << "\"\n";
 }
 void print(ofstream &outfile, double weight) {
-    outfile << "Weight: " << weight << '\n';
-    
+    outfile << "Weight: " << weight << "\n";
+}
+void print(ofstream &outfile, double weight, int feetheight, int inchheight) {
+    double bmi = 703 * (weight/(pow(((feetheight * 12) + inchheight), 2)));
+    outfile << "BMI: " << bmi << "\n";
 }
