@@ -39,16 +39,19 @@ int main()
     int pick;
     int update;
     char enter;
-    char up;
+    int up;
     int new_age;
     char new_sex;
     int new_height;
     int new_weight;
+    int compare;
+    int compare1;
+    char proceed;
     vector<Person>vec;
     Person p;
     
    cout << "Welcome to the Workout Planner\n\n";
-   cout << "MAIN MENU\n" << "---------------------\n" << "1. Sign in\n2. Make an account\n3. See what others are up to\n\n";
+   cout << "MAIN MENU\n" << "---------------------\n" << "1. Sign in\n2. Make an account\n\n";
     
    cout << "Choice: ";
    cin >> account;
@@ -72,6 +75,29 @@ int main()
         }
         return 0;
    }
+
+//    if(account == 3)
+//    {
+//         while(choice == 'y')
+//         {
+//             //Here we use the overload operator to compare.
+//             cout << "\nWhat would you like to see?\n";
+//             cout << "---------------------------\n";
+//             cout << "1. Age";
+//             cout << "\n\nChoice: ";
+//             cin >> pick;
+//             if(pick == 1)
+//             {
+//                 for(int i=0; i < vec.size(); i++)
+//                 {
+//                     if
+//                 }
+//             }
+//             cout << "Would you like to see anything else? (y/n): ";
+//             cin >> choice;
+//         }
+//         return 0;
+//    }
 
    
    if(account == 1)
@@ -122,15 +148,19 @@ int main()
            }
        
     cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\n1. Age: " << vec[user-1].get_age() << "\n2. Sex: " << vec[user-1].get_sex();
-    cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi();
+    cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi() << "\n---------------------";
     
-       cout << "\n\nWould you like to update your information? (y/n): ";
+       cout << "\n\nWhat would you like to do?\n\n1. Update my information\n2. Compare your work\n\nChoice: ";
        cin >> up;
+
        
 
        if (up == 'y') {
+
+       if (up == 1) {
+
             do {
-            cout << "\nEnter one item you would like to update: ";
+            cout << "\nEnter one item you would like to update (Scroll up for options): ";
             cin >> update;
             while(true) {
                 if(cin.fail()) {
@@ -179,12 +209,97 @@ int main()
            feetheight = vec[user-1].get_height() / 12;
            inchheight = vec[user-1].get_height() % 12;
            weight = vec[user-1].get_weight();
+
        ofstream profile;
        profile.open("profiles.txt", ios::app);
        if (vec[user-1].get_name().find(firstname))
        profile << firstname << '\t' << lastname << '\t' << age << '\t' << sex << '\t' << feetheight << '\t' << inchheight << '\t' << weight << '\n';
+
+
+        if(up == 2)
+        {
+            cout << "Choose a profile to compare with:\n";
+            for(int i=0; i<vec.size()-1; i++)
+            {
+                while(i != user-1)
+                {
+                    cout << i+1 << ". ";
+                    cout << vec[i].get_name() << '\n';
+                    break;
+                }
+            }
+            cout << "\nChoice: ";
+            cin >> compare;
+
+            cout << "\nWhat would you like to compare with " << vec[compare-1].get_name() << "?\n\n1. Age\n";
+            cout << "\nChoice: ";
+            cin >> compare1;
+            if(compare1 == 1)
+            {
+                if(vec[user-1] < vec[compare-1])
+                {
+                    cout << "\nYou are older than " << vec[compare-1].get_name();
+                }
+                else
+                {
+                    cout << "\nYou are younger than " << vec[compare-1].get_name();
+                }
+                cout << "\nYou are " << vec[user-1].get_age() << '\n';
+                cout << vec[compare-1].get_name() << " is " << vec[compare-1].get_age();
+                
+                cout << "\nWould you like to update your workout? (y/n): ";
+                cin >> proceed;
+                if(proceed == 'y'){}
+                else
+                {
+                    cout << "Bye!";
+                    return 0;
+                }
+            }
+
+        }
+       
     
-   }if(account == '2')
+   }
+
+      if(account == 3)
+      {
+        while(choice == 'y')
+        {
+            //Here we use the overload operator to compare.
+            cout << "\nWhat would you like to see?\n";
+            cout << "---------------------------\n";
+            cout << "1. Age";
+            cout << "\n\nChoice: ";
+            cin >> pick;
+            if(pick == 1)
+            {
+                /*for(int i=0; i < vec.size(); i++)
+                {
+                    for(int j = i + 1; j < vec.size(); j++)
+                    {
+                        if(vec[j] < vec[i])
+                        {
+                            Person temp = vec[i];
+                            vec[i] = vec[j];
+                            vec[j] = Person temp;
+                        }
+                    }
+                }*/
+
+
+            }
+            cout << "Would you like to see anything else? (y/n): ";
+            cin >> choice;
+        }
+        return 0;
+      }
+   
+   
+   
+   
+   
+   if(account == 2)
    {
     
 	cout << "\nEnter your first name: ";
@@ -351,6 +466,7 @@ int main()
         cout << "yuh";
     }
        
+   }
 
 	return 0;
 } //end of main
