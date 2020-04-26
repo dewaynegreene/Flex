@@ -352,8 +352,8 @@ int main()
                 workouts.push_back(q);
             }
             if (w.glutes == true) {
-               string g = w.glutes_workout();
-                workouts.push_back(g);
+               string glutes = g.glutes_workout();
+                workouts.push_back(glutes);
             }
             if (w.abdomen == true) {
                 string a = g.abdomen_workout();

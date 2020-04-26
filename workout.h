@@ -12,15 +12,16 @@ class Workout
     private:
         int dayoftheweek;
 
-        string bicep_exercise;
-        string tricep_exercise;
-        string quad_exercise;
-        string glutes_exercise;
-        string abdomen_exercise;
-        string back_exercise;
         char gym;
     protected:
 
+    string bicep_exercise;
+    string tricep_exercise;
+    string quad_exercise;
+    string glutes_exercise;
+    string abdomen_exercise;
+    string back_exercise;
+    
     public:
         bool bicep = false;
         bool tricep = false;
@@ -34,12 +35,6 @@ class Workout
         void set_dotw(int dotw);
         int get_dotw();
         void set_gym(char input);
-        string bicep_workout(); //These will return workout for each variable
-        string tricep_workout();
-        string quad_workout();
-        string glutes_workout();
-        string abdomen_workout();
-        string back_workout();
         friend void age_check(int age, Workout w);
     
 
