@@ -1,3 +1,2 @@
-Andres Greene	22	m	5	9	150
+Andres Greene	22	m	5	9	145
 Garrett Ford	20	f	5	11	165
-Carlos Boozer	40	m	6	6	210
