@@ -70,5 +70,6 @@ int Person::getcount()
 
 double Person::printbmi()
 {
-    return (703 * (weight/(pow(height, 2))));
+    double bmi = 703 * (weight/(pow(height, 2)));
+    return bmi;
 }
