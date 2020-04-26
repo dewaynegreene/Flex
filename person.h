@@ -9,7 +9,7 @@ class Person
     private:
 	string name;
 	int age;
-	char sex;
+	char sex; //m/f/
 	int height; // in inches
 	double weight;
 	static int count; //Static member variable
@@ -30,8 +30,8 @@ class Person
 	void set_height(int feet, int inch);
 	static int getcount();  //Static member function
 	double printbmi();
-	friend bool operator< (Person& p1, Person& p2); //friend function
-	friend bool operator> (Person& p1, Person& p2);
+	friend bool operator< (Person& p1, Person& p2); //friend function/overloading operator
+	friend bool operator> (Person& p1, Person& p2); //friend function/overloading operator
 	
 };
 

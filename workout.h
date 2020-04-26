@@ -35,7 +35,7 @@ class Workout
         void set_dotw(int dotw);
         int get_dotw();
         void set_gym(char input);
-        friend void age_check(int age, Workout w);
+        friend void age_check(int age, Workout w);//friend function
     
 
 };

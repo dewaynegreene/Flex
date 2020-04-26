@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//prototypes for overload functions
 void print(ofstream&, int);
 void print(ofstream&, string);
 void print(ofstream&, int, int);
@@ -67,7 +68,7 @@ int main()
 
 	
     ifstream iprofile;
-    iprofile.open("profiles.txt");
+    iprofile.open("profiles.txt");//file to store profiles
     string line;
        if (iprofile.eof()){
         cout << "There are no profiles registered. Exit the program and try again." << endl;
@@ -147,7 +148,7 @@ int main()
                     vec[user-1].set_weight(new_weight);
                }
                if(update == 5) {
-                    cout << "Sorry your BMI is calculated from your height and weight.\n";
+                    cout << "Sorry your BMI is calculated from your height and weight and can't be manually changed.\n";
                }
                
                cout << "would you like to update another item? (y/n): ";
@@ -272,7 +273,7 @@ int main()
    Person f;
    if(account == 2)
    {
-    
+    //creating profile
 	cout << "\nEnter your first name: ";
 	cin >> firstname;
 	cout << "Enter your last name: ";
@@ -296,7 +297,7 @@ int main()
     int_check(weight);
 	f.set_weight(weight);
 
-    //Here we create their account in the profiles file
+    //Here we create their account in the profiles.txt file
 
     ofstream profile;
     profile.open("profiles.txt", ios::app);
@@ -339,7 +340,7 @@ int main()
     vector <string> workouts;
     switch (gym) {
     
-        case 'n':
+        case 'n'://if they don't have a gym membership
 		cout << "\nDo you have gym equipment at home? (y/n): ";
 		cin >> equipment;
 		h.equipment(equipment);
@@ -368,7 +369,7 @@ int main()
                 workouts.push_back(back);
             }
                 break;
-        case 'y':
+        case 'y'://if they have a gym membership
             if (w.bicep == true) {
                 string b = g.bicep_workout();
                 workouts.push_back(b);
@@ -399,7 +400,7 @@ int main()
             return 1;
     }
 
-       ofstream outfile;                    //Write to workout_planner.txt
+       ofstream outfile;//Write to workout_planner.txt
        outfile.open("workout_planner.txt");
         outfile << "-------------------------------\n";
         print(outfile, firstname);

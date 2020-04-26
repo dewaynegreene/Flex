@@ -4,7 +4,7 @@
 #include "workout.h"
 
 
-class athome : public Workout
+class athome : public Workout //inherits from workout
 {
     private:
         char equip;

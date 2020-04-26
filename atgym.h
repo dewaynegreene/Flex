@@ -2,7 +2,7 @@
 #define ATGYM_H
 #include "workout.h"
 
-class atgym : public Workout
+class atgym : public Workout //inherits fromm workout
 {
     private:
 
