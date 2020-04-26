@@ -7,6 +7,7 @@
 #include <vector>
 #include <fstream>
 #include <math.h>
+#include <limits>
 
 using namespace std;
 
@@ -101,7 +102,6 @@ int main()
 
    
    if(account == 1)
-    
    {
 
 	
@@ -155,23 +155,12 @@ int main()
 
        
 
-       if (up == 'y') {
-
        if (up == 1) {
 
             do {
             cout << "\nEnter one item you would like to update (Scroll up for options): ";
             cin >> update;
-            while(true) {
-                if(cin.fail()) {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "You must enter an integer \nWhat would you like to update?: ";
-                    cin >> update;
-                }
-                if (!cin.fail())
-                    break;
-            }
+                int_check(update);
                if(update == 1) {
                     cout << "What is your new age? ";
                     cin >> new_age;
@@ -256,44 +245,43 @@ int main()
                     return 0;
                 }
             }
-
-        }
        
     
+        }
    }
 
-      if(account == 3)
-      {
-        while(choice == 'y')
-        {
-            //Here we use the overload operator to compare.
-            cout << "\nWhat would you like to see?\n";
-            cout << "---------------------------\n";
-            cout << "1. Age";
-            cout << "\n\nChoice: ";
-            cin >> pick;
-            if(pick == 1)
-            {
-                /*for(int i=0; i < vec.size(); i++)
-                {
-                    for(int j = i + 1; j < vec.size(); j++)
-                    {
-                        if(vec[j] < vec[i])
-                        {
-                            Person temp = vec[i];
-                            vec[i] = vec[j];
-                            vec[j] = Person temp;
-                        }
-                    }
-                }*/
-
-
-            }
-            cout << "Would you like to see anything else? (y/n): ";
-            cin >> choice;
-        }
-        return 0;
-      }
+//      if(account == 3)
+//      {
+//        while(choice == 'y')
+//        {
+//            //Here we use the overload operator to compare.
+//            cout << "\nWhat would you like to see?\n";
+//            cout << "---------------------------\n";
+//            cout << "1. Age";
+//            cout << "\n\nChoice: ";
+//            cin >> pick;
+//            if(pick == 1)
+//            {
+//                /*for(int i=0; i < vec.size(); i++)
+//                {
+//                    for(int j = i + 1; j < vec.size(); j++)
+//                    {
+//                        if(vec[j] < vec[i])
+//                        {
+//                            Person temp = vec[i];
+//                            vec[i] = vec[j];
+//                            vec[j] = Person temp;
+//                        }
+//                    }
+//                }*/
+//
+//
+//            }
+//            cout << "Would you like to see anything else? (y/n): ";
+//            cin >> choice;
+//        }
+//        return 0;
+//      }
    
    
    
@@ -324,9 +312,6 @@ int main()
 	cin >> weight;
     int_check(weight);
 	p.set_weight(weight);
-
-    //Push person into vector of people
-    //vec.push_back(p);
 
     //Here we create their account in the profiles file
 
@@ -466,7 +451,6 @@ int main()
         cout << "yuh";
     }
        
-   }
 
 	return 0;
 } //end of main
