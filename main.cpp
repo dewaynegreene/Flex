@@ -106,7 +106,7 @@ int main()
         vec.push_back(f);
     }
        
-    for(int i=1, l=0; l < vec.size()-1; i++, l++)
+    for(int i=1, l=0; l < Person::getcount(); i++, l++)
     {
         cout << i << ". ";
         cout << vec[l].get_name() << '\n';
@@ -163,7 +163,7 @@ int main()
         if(up == 2)
         {
             cout << "Choose a profile to compare with:\n";
-            for(int i=0; i<vec.size()-1; i++)
+            for(int i=0; i < Person::getcount(); i++)
             {
                 while(i != user-1)
                 {
@@ -191,7 +191,7 @@ int main()
                 cout << "\nYou are " << vec[user-1].get_age() << '\n';
                 cout << vec[compare-1].get_name() << " is " << vec[compare-1].get_age();
                 
-                cout << "\nWould you like to update your workout? (y/n): ";
+                cout << "\n\nWould you like to update your workout? (y/n): ";
                 cin >> proceed;
                 if(proceed == 'y'){}
                 else
@@ -404,7 +404,7 @@ int main()
 
    
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
-
+    outfile.close();
        
 	return 0;
 } //end of main
