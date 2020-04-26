@@ -36,8 +36,6 @@ int main()
 	char gym;
 	char equipment;
     int user;
-    char choice = 'y';
-    int pick;
     int update;
     char enter;
     int up;
@@ -49,7 +47,7 @@ int main()
     int compare1;
     char proceed;
     vector<Person>vec;
-    Person p;
+   
     
    cout << "Welcome to the Workout Planner\n\n";
    cout << "MAIN MENU\n" << "---------------------\n" << "1. Sign in\n2. Make an account\n\n";
@@ -71,7 +69,7 @@ int main()
         
     while(!iprofile.eof())
     {
-        
+        Person p;
         string filefname, filelname;
         char filesex;
         int filefeet, fileinch, fileage;
@@ -87,7 +85,7 @@ int main()
         vec.push_back(p);
     }
        int num_users=0;
-    for(int i=1, l=0; l < Person::getcount(); i++, l++)
+    for(int i=1, l=0; l < Person::getcount()-1; i++, l++)
     {
         cout << i << ". ";
         num_users++;
@@ -164,7 +162,7 @@ int main()
         if(up == 2)
         {
             cout << "Choose a profile to compare with:\n";
-            for(int i=0; i < Person::getcount(); i++)
+            for(int i=0; i < Person::getcount()-1; i++)
             {
                 while(i != user-1)
                 {
@@ -203,7 +201,7 @@ int main()
             }
         }
    }
-   
+    Person f;
    if(account == 2)
    {
     
@@ -211,24 +209,24 @@ int main()
 	cin >> firstname;
 	cout << "Enter your last name: ";
 	cin >> lastname;
-	p.set_name(firstname, lastname);
+	f.set_name(firstname, lastname);
 	cout << "Enter your age: ";
 	cin >> age;
     int_check(age);
-	p.set_age(age);
+	f.set_age(age);
 	cout << "Enter your sex (m/f): ";
 	cin >> sex;
-	p.set_age(sex);
+	f.set_sex(sex);
 	cout << "Enter your height (feet inches): ";
 	cin >> feetheight;
     int_check(feetheight);
 	cin >> inchheight;
     int_check(inchheight);
-	p.set_height(feetheight, inchheight);
+	f.set_height(feetheight, inchheight);
 	cout << "Enter your weight (lbs): ";
 	cin >> weight;
     int_check(weight);
-	p.set_weight(weight);
+	f.set_weight(weight);
 
     //Here we create their account in the profiles file
 

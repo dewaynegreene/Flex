@@ -47,8 +47,7 @@ void Workout::set_dotw(int dotw)
 void age_check(int age, Workout w) {
     if (age > 55) {
         if (w.get_dotw() >= 5) {
-            w.set_dotw(4);
-            cout << "\nIt is recommended that you only exercise a maximum of 4 days a week so you can have rest days in between.\n";
+            cout << "\nIt is recommended that you only exercise a maximum of 4 days a week so you can have rest days in between. consider lowering your frequency.\n";
         }
     }
 }
