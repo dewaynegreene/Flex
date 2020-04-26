@@ -405,15 +405,7 @@ int main()
    
     cout << "\n\nYour workout is available in the workout planner text file.\nEnjoy your workout!" << endl;
 
-<<<<<<< HEAD
-    outfile.close();
-=======
-    if(account == 3)
-    {
-        cout << "yuh";
-    }
        
->>>>>>> fe0f2278c61f2e88b237613f7ecee366884737df
 	return 0;
 } //end of main
 
