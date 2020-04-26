@@ -91,7 +91,7 @@ int main()
         vec.push_back(p);
     }
        int num_users=0;
-    for(int i=1, l=0; l < Person::getcount()-1; i++, l++)
+    for(int i=1, l=0; l < Person::getcount(); i++, l++)
     {
         cout << i << ". ";
         num_users++;
@@ -168,7 +168,7 @@ int main()
         if(up == 2)
         {
             cout << "Choose a profile to compare with:\n";
-            for(int i=0; i < Person::getcount()-1; i++)
+            for(int i=0; i < Person::getcount(); i++)
             {
                 while(i != user-1)
                 {
@@ -180,7 +180,7 @@ int main()
             cout << "\nChoice: ";
             cin >> compare;
 
-            cout << "\nWhat would you like to compare with " << vec[compare-1].get_name() << "?\n\n1. Age\n";
+            cout << "\nWhat would you like to compare with " << vec[compare-1].get_name() << "?\n\n1. Age\n2. Height\n";
             cout << "\nChoice: ";
             cin >> compare1;
             if(compare1 == 1)
@@ -196,14 +196,47 @@ int main()
                 cout << "\nYou are " << vec[user-1].get_age() << '\n';
                 cout << vec[compare-1].get_name() << " is " << vec[compare-1].get_age();
                 
-                cout << "\n\nWould you like to update your workout? (y/n): ";
-                cin >> proceed;
-                if(proceed == 'y'){}
+                // cout << "\n\nWould you like to update your workout? (y/n): ";
+                // cin >> proceed;
+                // if(proceed == 'y'){}
+                // else
+                // {
+                //     cout << "Bye!";
+                //     return 0;
+                // }
+            }
+
+            if(compare1 == 2)
+            {
+                if(vec[compare-1] > vec[user-1])
+                {
+                    cout << "\nYou are taller than " << vec[compare-1].get_name();
+                }
                 else
                 {
-                    cout << "Bye!";
-                    return 0;
+                    cout << "\nYou are shorter than " << vec[compare-1].get_name();
                 }
+                
+                int inches = vec[user-1].get_height();
+                int feet1 = inches/12;
+                int inch1 = inches%12;
+                int inchesc = vec[compare-1].get_height();
+                int feet2 = inchesc/12;
+                int inch2 = inchesc%12;
+
+                
+                
+                cout << "\nYou are " << feet1 <<"' " << inch1 << "\"" << '\n';
+                cout << vec[compare-1].get_name() << " is " << feet2 << "' " << inch2 << "\"";
+            }
+            
+            cout << "\n\nWould you like to update your workout? (y/n): ";
+            cin >> proceed;
+            if(proceed == 'y'){}
+            else
+            {
+                cout << "Bye!";
+                return 0;
             }
         }
    }
