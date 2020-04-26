@@ -27,7 +27,7 @@ int main()
     string firstname;
     string lastname;
 	int age = '\0';
-	char sex;
+	char sex = '\0';
 	int feetheight = '\0';
 	int inchheight = '\0';
 	double weight = '\0';
@@ -104,7 +104,7 @@ int main()
     cout <<"\n\nWelcome back " << vec[user-1].get_name() << "!\n" << "-----------------------" << "\n1. Age: " << vec[user-1].get_age() << "\n2. Sex: " << vec[user-1].get_sex();
     cout <<"\n3. Height: " << vec[user-1].get_height() << " inches" << "\n4. Weight: " << vec[user-1].get_weight() << "\n5. BMI: " << vec[user-1].printbmi() << "\n---------------------";
     
-       cout << "\n\nWhat would you like to do?\n\n1. Update my information\n2. Compare your work\n\nChoice: ";
+       cout << "\n\nWhat would you like to do?\n\n1. Update my information\n2. Compare your work\n3. Plan a new workout\n\nChoice: ";
        cin >> up;
 
        
@@ -201,7 +201,7 @@ int main()
             }
         }
    }
-    Person f;
+   Person f;
    if(account == 2)
    {
     
@@ -273,10 +273,6 @@ int main()
         case 'n':
 		cout << "\nDo you have gym equipment at home? (y/n): ";
 		cin >> equipment;
-            if (equipment != 'y' || equipment != 'n') {
-                cout<< "\nYou must enter either y or n to continue.\nDo you have gym equipment at home? (y/n): ";
-                cin >> equipment;
-            }
 		h.equipment(equipment);
             if (w.bicep == true) {
                 string b = h.bicep_workout();
@@ -336,6 +332,7 @@ int main()
 
        ofstream outfile;                    //Write to workout_planner.txt
        outfile.open("workout_planner.txt");
+        outfile << "-------------------------------\n";
         print(outfile, firstname);
         outfile << "'s Info\n";
         outfile << "-------------------------------\n";
@@ -343,7 +340,9 @@ int main()
         print(outfile, feetheight, inchheight);
         print(outfile, weight);
         print(outfile, weight, feetheight, inchheight);
+        outfile << "-------------------------------\n";
         print(outfile, firstname);
+        
         outfile << "'s Workout Planner\n";
         outfile << "-------------------------------\n";
        
